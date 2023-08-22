@@ -13,7 +13,7 @@ import PropTypes from 'prop-types'
 
 const Container = styled.div `
     flex : 1;
-    background-color : ${({theme}) => theme.bg};
+    background-color : ${({theme}) => theme.bgLighter};
     color : ${({theme}) => theme.text};
     height : 100%;
     font-size: 14px;
@@ -62,6 +62,7 @@ const Hr = styled.hr `
 const Login = styled.div `
     display: flex;
     flex-direction: column;
+    align-items: center;
 `
 
 const Button = styled.button `
@@ -69,7 +70,6 @@ const Button = styled.button `
     align-items: center;
     gap: 5px;
     padding: 5px 15px;
-    width: 70%;
     background-color: transparent;
     border: 1px solid #3ea6ff;
     border-radius: 3px;
@@ -85,11 +85,11 @@ const Menu = ({darkMode , setDarkMode}) => {
             <Wrapper>
                 <Logo>
                     <IconBrandYoutubeFilled size={35}/>
-                    Youtube
+                    <span>Youtube</span>
                 </Logo>
                 <Item>
                     <HomeIcon/>
-                    Home
+                    <span>Home</span>
                 </Item>
                 <Item>
                     <ExploreOutlinedIcon/>
