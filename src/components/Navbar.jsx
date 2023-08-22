@@ -20,7 +20,7 @@ const Wrapper = styled.div `
 
 const Search = styled.div `
     position: absolute;
-    right: 0;
+    right: 100px;
     left: 0;
     margin: auto;
     width: 40%;
