@@ -10,6 +10,7 @@ import LiveTvOutlinedIcon from '@mui/icons-material/LiveTvOutlined';
 
 import { styled } from "styled-components";
 import PropTypes from 'prop-types'
+import { Link } from "react-router-dom";
 
 const Container = styled.div `
     flex : 1;
@@ -31,6 +32,10 @@ const Logo = styled.div `
     gap : 5px;
     font-weight : bold;
     margin-bottom : 25px;
+
+    & span {
+        color: ${({theme}) => theme.text};
+    }
 `
 
 const Title = styled.h2 `
@@ -72,21 +77,23 @@ const Button = styled.button `
     padding: 5px 15px;
     background-color: transparent;
     border: 1px solid #3ea6ff;
-    border-radius: 3px;
+    border-radius: 5px;
     color: #3ea6ff;
     font-weight: 500;
     cursor: pointer;
     margin-top: 10px;
 `
 
-const Menu = ({darkMode , setDarkMode}) => {
+const Menu = ({themeMode , setThemeMode}) => {
     return (
         <Container>
             <Wrapper>
-                <Logo>
-                    <IconBrandYoutubeFilled size={35}/>
-                    <span>Youtube</span>
-                </Logo>
+                <Link to='/' style={{textDecoration : 'none'}}>
+                    <Logo>
+                        <IconBrandYoutubeFilled size={35}/>
+                        <span>Youtube</span>
+                    </Logo>
+                </Link>
                 <Item>
                     <HomeIcon/>
                     <span>Home</span>
@@ -154,8 +161,8 @@ const Menu = ({darkMode , setDarkMode}) => {
                     <IconHelp/>
                     Help
                 </Item>
-                <Item onClick={() => setDarkMode(!darkMode)}>
-                    {darkMode ? 
+                <Item onClick={() => setThemeMode(!themeMode)}>
+                    {themeMode ? 
                     <>
                         <IconSun/> <span>Light mode</span>
                     </>
@@ -171,8 +178,8 @@ const Menu = ({darkMode , setDarkMode}) => {
 };
 
 Menu.propTypes = {
-    darkMode : PropTypes.bool,
-    setDarkMode : PropTypes.any
+    themeMode : PropTypes.bool,
+    setThemeMode : PropTypes.any
 }
 
 export default Menu;

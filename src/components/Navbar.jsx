@@ -43,10 +43,7 @@ const Input = styled.input `
     border: none;
     background-color: transparent;
     caret-color: ${({theme}) => theme.textSoft};
-
-    &:focus {
-        outline: none;
-    }
+    outline: none;
 `
 
 const Button = styled.button `
@@ -56,7 +53,7 @@ const Button = styled.button `
     padding: 5px 15px;
     background-color: transparent;
     border: 1px solid #3ea6ff;
-    border-radius: 3px;
+    border-radius: 5px;
     color: #3ea6ff;
     font-weight: 500;
     cursor: pointer;
