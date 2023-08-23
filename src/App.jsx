@@ -8,6 +8,7 @@ import { darkTheme, lightTheme } from './Theme/Theme.js'
 import { Route, Routes } from "react-router-dom"
 import Home from "./components/Pages/Home.jsx"
 import Video from "./components/Pages/Video.jsx"
+import Login from "./components/Pages/Login.jsx"
 
 const Container = styled.div `
   display: flex;
@@ -28,10 +29,6 @@ function App() {
 
   const [themeMode, setThemeMode] = useState(true);
 
-  // useEffect(() => {
-  //   localStorage.setItem('themeMode', JSON.stringify(themeMode));
-  // }, [themeMode]);
-
   return (
     <ThemeProvider theme={themeMode ? darkTheme : lightTheme}>
       <Container>
@@ -42,6 +39,7 @@ function App() {
             <Routes>
               <Route path="/">
                 <Route index element={<Home />} />
+                <Route path="/login" element={<Login/>} />
                 <Route path="video">
                   <Route path=":id" element={<Video />} />
                 </Route>

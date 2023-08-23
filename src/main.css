@@ -5,6 +5,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    transition: background .2s ease;
+
 }
 
 svg.tabler-icon.tabler-icon-brand-youtube-filled {

@@ -118,7 +118,9 @@ const Menu = ({themeMode , setThemeMode}) => {
                 <Hr/>
                 <Login>
                     <span>Log in to like videos, comment and subscribe.</span>
-                    <Button><IconUserCircle/> Log in</Button>
+                    <Link style={{textDecoration : 'none'}} to='/login'>
+                        <Button><IconUserCircle/> Log in</Button>
+                    </Link>
                 </Login>
                 <Hr/>
                 <Title>

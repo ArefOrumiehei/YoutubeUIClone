@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 
 import { IconSearch, IconUserCircle } from "@tabler/icons-react";
+import { Link } from "react-router-dom";
 
 const Container = styled.div `
     position: sticky;
@@ -67,7 +68,9 @@ const Navbar = () => {
                     <Input placeholder="Search"/>
                     <IconSearch className="icon"/>
                 </Search>
-                <Button><IconUserCircle/> Log in</Button>
+                <Link style={{textDecoration : 'none'}} to='/login'>
+                        <Button><IconUserCircle/> Log in</Button>
+                </Link>
             </Wrapper>
         </Container>
     );

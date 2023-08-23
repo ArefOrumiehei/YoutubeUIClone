@@ -1,40 +1,53 @@
+import PropTypes from 'prop-types'
+
 import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
 const Container = styled.div `
-    width: 300px;
-    margin: 7px 0px;
-    `
+    width: ${(props) => props.type !== 'sm' && '300px'};
+    margin: ${(props) => props.type === 'sm' ? '10px 0' : '7px 0'};
+    display: ${(props) => props.type === 'sm' && 'flex'};
+    gap: 10px;
+`
 
 const Image = styled.img `
     width: 100%;
-    height: 202px; // From youtube
+    height: ${(props) => props.type === 'sm' ? '94px' : '202px'};
     background-color: #999;
     border-radius: 10px;
+    flex: 1;
 `
 
 const Details = styled.div `
     display: flex;
     gap: 12px;
-    margin-top: 16px;
+    margin-top: ${(props) => props.type !== 'sm' && '16px'};
+    flex: 1;
 
     & img {
         width: 35px;
         height: 35px;
-        border-radius: 50%;        
+        border-radius: 50%;
+        display: ${(props) => props.type === 'sm' ? 'none' : 'block'};
     }
 `
 
 const Texts = styled.div `
 
     & h1 {
-        font-size: 16px;
+        font-size: ${(props) => props.type === 'sm' ? '14px' : '16px'};
         font-weight: 500;
         color: ${({theme}) => theme.text};
+        width: ${(props) => props.type === 'sm' && '80px'};
+        white-space: ${(props) => props.type === 'sm' && 'nowrap'};
+        word-break: break-all;
+        line-height: ${(props) => props.type === 'sm' && '1.2rem'};
+        overflow: ${(props) => props.type === 'sm' && 'hidden'};
+        text-overflow: ${(props) => props.type === 'sm' && 'ellipsis'}; 
     }
 
     & h2 {
-        font-size: 14px;
+        font-size: ${(props) => props.type === 'sm' ? '12px' : '14px'};
         color: ${({theme}) => theme.textSoft};
         margin: 8px 0;
 
@@ -45,19 +58,19 @@ const Texts = styled.div `
     }
 
     & span {
-        font-size: 14px;
+        font-size: ${(props) => props.type === 'sm' ? '12px' : '14px'};
         color: ${({theme}) => theme.textSoft};
     }
 `
 
-const Card = () => {
+const Card = ({type}) => {
     return (
         <Link to='video/test' style={{textDecoration : "none"}}>
-            <Container>
-                <Image src="https://i.ytimg.com/vi/CMLD0Lp0JBg/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCHesjFLSCFoNmmKddRi1sXf-RfFw"/>
-                <Details>
+            <Container type={type}>
+                <Image type={type} src="https://i.ytimg.com/vi/CMLD0Lp0JBg/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCHesjFLSCFoNmmKddRi1sXf-RfFw"/>
+                <Details type={type}>
                     <img src="https://yt3.googleusercontent.com/2kw8s66dhLUegJ3XrqZSkZMfp77CRhCfYm1NurDwDB2L9sT_-CaoUix_iWjoE_t66b07JzoR=s176-c-k-c0x00ffffff-no-rj"/>
-                    <Texts>
+                    <Texts type={type}>
                         <h1>Artemis I Launch to the Moon (Official NASA Broadcast) - Nov. 16, 2022</h1>
                         <h2>NASA</h2>
                         <span>10M views • Streamed 9 months ago</span>
@@ -67,5 +80,9 @@ const Card = () => {
         </Link>
     );
 };
+
+Card.propTypes = {
+    type : PropTypes.string
+}
 
 export default Card;

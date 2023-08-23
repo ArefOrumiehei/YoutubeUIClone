@@ -13,7 +13,7 @@ export const lightTheme = {
     bgLighter : 'white',
     text : 'black',
     textSoft : '#606060',
-    soft : '#f5f5f5',
+    soft : '#e0e0e0',
     hover : '#e5e5e5',
     textHover : '#222',
 }

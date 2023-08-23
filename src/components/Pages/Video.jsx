@@ -3,7 +3,9 @@ import { styled } from "styled-components";
 
 // Expand componnet
 import ExpandableText from "../ExpandableText";
+
 import Comments from "../Comments";
+import Card from '../Card'
 
 const Container = styled.div `
     display: flex;
@@ -15,7 +17,7 @@ const Content = styled.div `
     margin: 15px;
 
     & h1 {
-        font-size: 16px;
+        font-size: 18px;
         font-weight: 400;
         margin-top: 20px;
         margin-bottom: 10px;
@@ -54,6 +56,12 @@ const Button = styled.button `
     color: ${({theme}) => theme.text};
     cursor: pointer;
     gap: 3px;
+    padding: 5px;
+    border-radius: 10px;
+
+    &:hover {
+        background-color: ${({theme}) => theme.hover};
+    }
 `
 
 const Hr = styled.hr `
@@ -152,7 +160,18 @@ const Video = () => {
                 <Hr/>
                 <Comments/>
             </Content>
-            <Recommendation>recommend</Recommendation>
+            <Recommendation>
+                <Card type='sm' />
+                <Card type='sm' />
+                <Card type='sm' />
+                <Card type='sm' />
+                <Card type='sm' />
+                <Card type='sm' />
+                <Card type='sm' />
+                <Card type='sm' />
+                <Card type='sm' />
+                <Card type='sm' />
+            </Recommendation>
         </Container>
     );
 };

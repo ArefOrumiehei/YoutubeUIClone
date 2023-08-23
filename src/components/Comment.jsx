@@ -39,11 +39,13 @@ const CommentInfo = styled.div `
         color: ${({theme}) => theme.text};
         font-size: 16px;
         font-weight: 400;
+        cursor: pointer;
     }
 
     & .date {
         color: ${({theme}) => theme.textSoft};
         font-size: 12px;
+        cursor: pointer;
     }
 `
 
