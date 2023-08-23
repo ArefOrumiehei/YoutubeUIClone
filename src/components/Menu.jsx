@@ -52,10 +52,10 @@ const Item = styled.div `
     cursor: pointer;
     margin-bottom: 10px;
     padding: 5px 10px;
+    border-radius: 10px;
 
     &:hover {
         background-color: ${({theme}) => theme.hover};
-        border-radius: 10px;
     }
 `
 
