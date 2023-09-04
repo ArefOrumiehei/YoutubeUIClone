@@ -1,13 +1,19 @@
 import PropTypes from 'prop-types'
-
 import { Link } from "react-router-dom";
 import { styled } from "styled-components";
+
 
 const Container = styled.div `
     width: ${(props) => props.type !== 'sm' && '300px'};
     margin: ${(props) => props.type === 'sm' ? '10px 0' : '7px 0'};
     display: ${(props) => props.type === 'sm' && 'flex'};
     gap: 10px;
+    overflow: hidden;
+
+
+    @media screen and (min-width : 400px) and (max-width : 768px) {
+        width: 80vw;
+    }
 `
 
 const Image = styled.img `
@@ -16,6 +22,7 @@ const Image = styled.img `
     background-color: #999;
     border-radius: 10px;
     flex: 1;
+    object-fit: cover;
 `
 
 const Details = styled.div `
@@ -38,18 +45,30 @@ const Texts = styled.div `
         font-size: ${(props) => props.type === 'sm' ? '14px' : '16px'};
         font-weight: 500;
         color: ${({theme}) => theme.text};
-        width: ${(props) => props.type === 'sm' && '80px'};
+        width: ${(props) => props.type === 'sm' && '30%'};
         white-space: ${(props) => props.type === 'sm' && 'nowrap'};
         word-break: break-all;
         line-height: ${(props) => props.type === 'sm' && '1.2rem'};
         overflow: ${(props) => props.type === 'sm' && 'hidden'};
         text-overflow: ${(props) => props.type === 'sm' && 'ellipsis'}; 
+
+        @media screen and (max-width : 768px) {
+            width: 80%;
+        }
+
+        @media screen and (max-width : 400px) {
+            font-size: 12px;
+        }
     }
 
     & h2 {
         font-size: ${(props) => props.type === 'sm' ? '12px' : '14px'};
         color: ${({theme}) => theme.textSoft};
         margin: 8px 0;
+
+        @media screen and (max-width : 400px) {
+            font-size: 10px;
+        }
 
         &:hover {
             cursor: pointer;
@@ -60,6 +79,10 @@ const Texts = styled.div `
     & span {
         font-size: ${(props) => props.type === 'sm' ? '12px' : '14px'};
         color: ${({theme}) => theme.textSoft};
+
+        @media screen and (max-width : 400px) {
+            font-size: 10px;
+        }
     }
 `
 

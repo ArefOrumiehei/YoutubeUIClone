@@ -1,19 +1,23 @@
 import { styled } from "styled-components";
-
-import { IconSearch, IconUserCircle } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
+
+//Icons
+import { IconBrandYoutubeFilled, IconSearch, IconUserCircle } from "@tabler/icons-react";
+
 
 const Container = styled.div `
     position: sticky;
     top: 0;
     background-color: ${({theme}) => theme.bgLighter};
     height: 60px;
+    width: 100%;
+    z-index: 10;
 `
 
 const Wrapper = styled.div `
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     height: 100%;
     padding: 0 20px;
     position: relative;
@@ -31,6 +35,10 @@ const Search = styled.div `
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
+
+    @media screen and (max-width : 450px) {
+        display: none;
+    }
 
     & .icon {
         cursor: pointer;
@@ -58,12 +66,36 @@ const Button = styled.button `
     color: #3ea6ff;
     font-weight: 500;
     cursor: pointer;
+
+    @media screen and (max-width : 400px) {
+        padding: 5px;
+    }
+`
+
+const Logo = styled.div `
+    display : flex;
+    align-items : center;
+    gap : 5px;
+    font-weight : bold;
+
+    & span {
+        color: ${({theme}) => theme.text};
+        @media screen and (max-width : 768px) {
+            display: none;
+        }
+    }
 `
 
 const Navbar = () => {
     return (
         <Container>
             <Wrapper>
+                <Link to='/' style={{textDecoration : 'none'}}>
+                    <Logo>
+                        <IconBrandYoutubeFilled size={35}/>
+                        <span>Youtube</span>
+                    </Logo>
+                </Link>
                 <Search>
                     <Input placeholder="Search"/>
                     <IconSearch className="icon"/>

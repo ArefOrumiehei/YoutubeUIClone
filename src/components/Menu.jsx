@@ -1,4 +1,11 @@
-import { IconBrandYoutubeFilled, IconMusic , IconBallFootball, IconNews, IconSettings, IconMessageReport, IconHelp, IconSun, IconUserCircle, IconMoon } from "@tabler/icons-react";
+import { styled } from "styled-components";
+import PropTypes from 'prop-types'
+import { Link } from "react-router-dom";
+
+//Icons
+import { IconMusic , IconBallFootball, IconNews, IconSettings, IconMessageReport, IconHelp, IconSun, IconUserCircle, IconMoon } from "@tabler/icons-react";
+
+//MUI
 import HomeIcon from '@mui/icons-material/Home';
 import ExploreOutlinedIcon from '@mui/icons-material/ExploreOutlined';
 import SubscriptionsOutlinedIcon from '@mui/icons-material/SubscriptionsOutlined';
@@ -8,33 +15,46 @@ import SportsEsportsOutlinedIcon from '@mui/icons-material/SportsEsportsOutlined
 import MovieOutlinedIcon from '@mui/icons-material/MovieOutlined';
 import LiveTvOutlinedIcon from '@mui/icons-material/LiveTvOutlined';
 
-import { styled } from "styled-components";
-import PropTypes from 'prop-types'
-import { Link } from "react-router-dom";
 
 const Container = styled.div `
     flex : 1;
     background-color : ${({theme}) => theme.bgLighter};
     color : ${({theme}) => theme.text};
-    height : 100%;
+    height : calc(100% - 60px);
     font-size: 14px;
-    position: sticky;
-    top: 0;
+    position: fixed;
+    top: 60px;
+    width: 200px;
+    overflow: scroll;
+
+    @media screen and (max-width : 768px) {
+        width: 15%;
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 `
 
 const Wrapper = styled.div `
     padding : 18px 26px;
-`
 
-const Logo = styled.div `
-    display : flex;
-    align-items : center;
-    gap : 5px;
-    font-weight : bold;
-    margin-bottom : 25px;
+    @media screen and (max-width : 768px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-    & span {
-        color: ${({theme}) => theme.text};
+    @media screen and (min-width: 451px) and (max-width : 767px) {
+        padding: 15px;
+    }
+
+    @media screen and (max-width : 450px) {
+        padding: 12px;
+    }
+
+    @media screen and (max-width : 400px) {
+        padding: 10px;
     }
 `
 
@@ -43,6 +63,10 @@ const Title = styled.h2 `
     font-weight: 500;
     color: #aaaaaa;
     margin-bottom: 10px;
+
+    @media screen and (max-width : 768px) {
+        display: none;
+    }
 `
 
 const Item = styled.div `
@@ -53,21 +77,39 @@ const Item = styled.div `
     margin-bottom: 10px;
     padding: 5px 10px;
     border-radius: 10px;
+    
+    @media screen and (max-width : 768px) {
+        margin-bottom: 20px;
+    }
 
     &:hover {
         background-color: ${({theme}) => theme.hover};
+    }
+
+    span {
+        @media screen and (max-width : 768px) {
+            display: none;
+        }
     }
 `
 
 const Hr = styled.hr `
     margin: 10px 0;
     border : 0.5px solid ${({theme}) => theme.soft};
+
+    @media screen and (max-width : 768px) {
+        display: none;
+    }
 `
 
 const Login = styled.div `
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @media screen and (max-width : 768px) {
+        display: none;
+    }
 `
 
 const Button = styled.button `
@@ -88,32 +130,26 @@ const Menu = ({themeMode , setThemeMode}) => {
     return (
         <Container>
             <Wrapper>
-                <Link to='/' style={{textDecoration : 'none'}}>
-                    <Logo>
-                        <IconBrandYoutubeFilled size={35}/>
-                        <span>Youtube</span>
-                    </Logo>
-                </Link>
                 <Item>
                     <HomeIcon/>
                     <span>Home</span>
                 </Item>
                 <Item>
                     <ExploreOutlinedIcon/>
-                    Explore
+                    <span>Explore</span>
                 </Item>
                 <Item>
                     <SubscriptionsOutlinedIcon/>
-                    Subscriptions
+                    <span>Subscriptions</span>
                 </Item>
                 <Hr/>
                 <Item>
                     <VideoLibraryOutlinedIcon/>
-                    Library
+                    <span>Library</span>
                 </Item>
                 <Item>
                     <HistoryOutlinedIcon/>
-                    History
+                    <span>History</span>
                 </Item>
                 <Hr/>
                 <Login>
@@ -128,40 +164,40 @@ const Menu = ({themeMode , setThemeMode}) => {
                 </Title>
                 <Item>
                     <IconMusic/>
-                    Music
+                    <span>Music</span>
                 </Item>
                 <Item>
                     <IconBallFootball/>
-                    Sports
+                    <span>Sports</span>
                 </Item>
                 <Item>
                     <SportsEsportsOutlinedIcon/>
-                    Gaming
+                    <span>Gaming</span>
                 </Item>
                 <Item>
                     <MovieOutlinedIcon/>
-                    Movies
+                    <span>Movies</span>
                 </Item>
                 <Item>
                     <IconNews/>
-                    News
+                    <span>News</span>
                 </Item>
                 <Item>
                     <LiveTvOutlinedIcon/>
-                    Live
+                    <span>Live</span>
                 </Item>
                 <Hr/>
                 <Item>
                     <IconSettings/>
-                    Settings
+                    <span>Settings</span>
                 </Item>
                 <Item>
                     <IconMessageReport/>
-                    Reports
+                    <span>Reports</span>
                 </Item>
                 <Item>
                     <IconHelp/>
-                    Help
+                    <span>Help</span>
                 </Item>
                 <Item onClick={() => setThemeMode(!themeMode)}>
                     {themeMode ? 

@@ -22,7 +22,11 @@ const Main = styled.div `
 const Wrapper = styled.div `
   display: flex;
   flex-direction: column;
-  /* padding: 22px 96px; */
+  padding: 0px 50px 0px 200px;
+
+  @media screen and (max-width : 768px) {
+      padding: 0 60px 0 100px;
+    }
 `
 
 function App() {

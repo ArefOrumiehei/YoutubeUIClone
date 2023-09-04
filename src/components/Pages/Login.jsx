@@ -6,8 +6,12 @@ const Container = styled.div `
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: calc(100vh - 56px);
+    height: calc(100vh - 60px);
     color: ${({theme}) => theme.text};
+
+    @media screen and (min-width: 250px) {
+        height: calc(100vh + 56px);
+    }
 `
 
 const Wrapper = styled.div `

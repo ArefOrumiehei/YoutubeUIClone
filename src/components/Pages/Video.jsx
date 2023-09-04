@@ -1,15 +1,21 @@
-import { IconDownload, IconShare, IconThumbDown, IconThumbUp } from "@tabler/icons-react";
 import { styled } from "styled-components";
 
-// Expand componnet
-import ExpandableText from "../ExpandableText";
+//Icons
+import { IconDownload, IconShare, IconThumbDown, IconThumbUp } from "@tabler/icons-react";
 
+//Components
+import ExpandableText from "../ExpandableText";
 import Comments from "../Comments";
 import Card from '../Card'
 
 const Container = styled.div `
     display: flex;
     gap: 24px;
+
+    @media screen and (max-width : 768px) {
+        flex-direction: column;
+        margin: 0 30px;
+    }
 `
 
 const Content = styled.div `
@@ -120,6 +126,10 @@ const SubBtn = styled.button `
 
 const Recommendation = styled.div `
     flex: 2;
+
+    @media screen and (max-width : 768px) {
+        border-top: 1px solid #fff;
+    }
 `
 
 const Video = () => {
